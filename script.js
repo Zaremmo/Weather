@@ -3,6 +3,8 @@ window.addEventListener("load", function(){
     let locationTimzone = document.querySelector(".location-timezone");
     let temperatureDegree = document.querySelector(".temperature-degree");
     let temperatureDescription = document.querySelector(".tempereture-description");
+    let iconSrc = document.querySelector(".icon");
+    let feelsLike = document.querySelector(".feels-like")
     // Get current location
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position =>{
@@ -17,15 +19,19 @@ window.addEventListener("load", function(){
             
             .then(data =>{
                  console.log(data)
-                 const {temperature, weather_descriptions} = data.current;
+                 const {temperature, weather_descriptions, weather_icons, feelslike} = data.current;
                  const {name} = data.location;
                  // Set DOM elements from api
-                 temperatureDegree.textContent = temperature;
+                 temperatureDegree.textContent = `Current ${temperature} C`;
                  locationTimzone.textContent = name;
                  temperatureDescription.textContent = weather_descriptions.join(", ");
-                 console.log(weatherDesc);
-
+                 iconSrc.src = weather_icons[0];
+                 feelsLike.textContent = `Feels like ${feelslike}`;
             });
         });
     }
+ // degree type switch C / F
+ let degreeSection = document.querySelector(".degree-section");
+ 
+
 });
