@@ -43,15 +43,13 @@ window.addEventListener("load", function(){
 
                      } else if (degreeType.textContent === "F"){
                          degreeType.textContent ="C";
-                         feelType.textContent = "F";
+                         feelType.textContent = "C";
                          temperatureDegree.textContent = `Current ${temperature}`;
                          feelsLike.textContent = `Feels like ${feelslike}`;
-                     }
+                     };
                     
                     });
-            });
+                });
         });
-    }
- 
-
+    };
 });
